@@ -1,17 +1,28 @@
+:root {
+    --background: rgb(0, 0, 0);
+    --element: #248862;
+    --radius: 55px;
+}
+
+
+
 body {
+    
     display: flex;
     flex-direction: column;
 
 
 
-    background-color: #011140;
-    color: #B4BEC9;
+    background-color: var(--background);
+    color: var(--element);
+
+
     font-family: Arial, Helvetica, sans-serif;
+
+
     margin: 0;
     padding: 0;
 
-
-    min-height: 100vh;
 
 }
 
@@ -19,33 +30,31 @@ body {
 
 
 header {
-    background-color: #163359;
-    padding: 1%;
+    background-color: var(--element);
+    color: var(--background);
+
+    padding: 2%;
 
 
+    p, h1 {
+        margin: 0px;
+        margin-left: 5%;
+
+    }
 
 }
 
 
-header h1 {
-    margin-left: 5%;
-
-}
 
 
 main {
     display: flex;
     flex-direction: column;
-    flex: 1;
 
     padding: 5%;
-    gap: 30px;
+    gap: 35px;
 
     
-
-
-
-
 
 
 }
@@ -56,11 +65,10 @@ div {
     justify-content: space-between;
 
 
-
     padding: 2%;
 
-    border: 1px solid #8593A6;
-    border-radius: 15px;
+    border: 1px solid var(--element);
+    border-radius: var(--radius);
 
     align-items: center;
 
@@ -76,48 +84,68 @@ section {
 }
 
 
-button {
-    border: 1px solid #8593A6;
-    color: white;
-    background-color: #011140;
-    border-radius: 15px;
-
-    font-size: large;
-
-    width: 400px;
-    height: 60px;
-}
-
-
-
-button:hover {
-    background-color: #8593A6;
-    color: #011140;
-}
 
 
 
 
 input {
-    background-color: #011140;
-    border: 1px solid #8593A6;
-    border-radius: 15px;
-    color: white;
+    background-color: var(--background);
+    border: 1px solid var(--element);
+    border-radius: var(--radius);
+    color: var(--element);
     font-size: larger;
 
-    height: 50px;
+    height: 48px;
+
+    text-align: center;
+
+
+
+    &:focus {
+        outline: none;
+    }
 
 }
 
 
-input:focus {
-    outline: none;
+
+
+
+
+button {
+    border: 1px solid var(--element);
+    color: var(--element);
+    background-color: var(--background);
+
+
+
+    border-radius: var(--radius);
+
+    font-size: large;
+
+    width: 400px;
+    height: 60px;
+
+
+
+    &:hover {
+        background-color: var(--element);
+        color: var(--background);
+    }
+
+
+
 }
+
+
+
 
 
 
 footer {
-    background-color: #163359;
+    background-color: var(--element);
+    color: var(--background);
+
     text-align: center;
 
 
@@ -150,12 +178,6 @@ footer {
         gap: 30px;
 
 
-    }
-
-
-
-    div h1, h2 {
-        width: 100%;
     }
 
 

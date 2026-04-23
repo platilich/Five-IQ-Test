@@ -21,35 +21,53 @@ let get_result = document.getElementById('get_result');
 
 
 // список вопросов
-let questions = [
+let vopros_one = [
     // --- Логика и последовательности ---
     'Продолжите ряд: 1, 3, 6, 10, 15...',
     'Продолжите ряд: 1, 4, 9, 16, 25...',
     'Вставьте пропущенное число: 8 (40) 5, 9 (...) 3',
     'Вставьте число: 2, 5, 11, 23...',
-    'Какое число в 3 раза меньше суммы чисел 15 и 12?',
+    'Какое число в 3 раза меньше суммы чисел 15 и 12?'
 
+];
+
+
+let vopros_two = [
     // --- Вербальный интеллект ---
     'Какое слово лишнее: Топор, Пила, Молоток, Гвоздь?',
     'Найдите слово, которое НЕ является названием планеты: Марс, Плутон, Венера, Альтаир',
     'Переставьте буквы и найдите лишнее слово: НОКЕ, ЛОСН, КШАКО, КЕРА',
     'Закончите аналогию: Птица — Перья, Рыба — ?',
     'Закончите аналогию: Утро — Завтрак, Вечер — ?',
-    'Какое слово означает то же самое, что и "Маленький": Громоздкий, Крошечный, Средний?',
+    'Какое слово означает то же самое, что и "Маленький": Громоздкий, Крошечный, Средний?'
 
+];
+
+
+let vopros_tree = [
     // --- Классические IQ-ловушки ---
     'У отца Мэри 5 дочерей: Нана, Нене, Нини, Ноно. Как зовут пятую?',
     'Если вы обогнали второго бегуна в марафоне, на каком месте вы теперь?',
     'Сколько месяцев в году имеют 28 дней?',
     'Кирпич весит 1 кг и еще полкирпича. Сколько весит кирпич?',
-    'У фермера было 17 овец. Все, кроме девяти, убежали. Сколько овец осталось?',
+    'У фермера было 17 овец. Все, кроме девяти, убежали. Сколько овец осталось?'
+
+];
+
+
+let vopros_four = [
 
     // --- Абстрактное и критическое мышление ---
     'Если все А это Б, а все Б это В, то все А это В. Верно?',
     'Какая буква лишняя в ряду: А, Е, И, О, Б, У?',
     'Сколько граней у шестигранного карандаша, если его не затачивали?',
     'Если три кошки ловят трех мышей за три минуты, сколько времени нужно одной кошке на одну мышь?',
-    'Какая буква должна быть следующей: П, В, С, Ч, П...',
+    'Какая буква должна быть следующей: П, В, С, Ч, П...'
+
+];
+
+
+let vopros_five =[
 
     // --- Задачи на эрудицию и внимательность ---
     'Символом какого языка программирования является суслик (Gopher)?',
@@ -61,6 +79,8 @@ let questions = [
     'Что тяжелее: 1 кг железа или 1 кг ваты?',
     'На каком языке говорят в Бразилии?',
     'Как переводится с английского слово "Purpose"?'
+
+
 ];
 
 let result = {
@@ -108,25 +128,28 @@ function generate_question() {
 
 
 
-    question_one.innerHTML = questions[Math.floor(Math.random()*questions.length)];
+    question_one.innerHTML = vopros_one[Math.floor(Math.random()*vopros_one.length)];
 
-    question_two.innerHTML = questions[Math.floor(Math.random()*questions.length)]; 
+    question_two.innerHTML = vopros_two[Math.floor(Math.random()*vopros_two.length)]; 
 
     // тут сложный немного алгоритм пришлось взять из ИИ самое простое что нашел 
     // quesions это наш словарь сверху потом бибилотека 
     // идет метод как я понял и заново бибилотека рандом и умножается на кол-во символов в словаре
     // честно говоря в python делается это проще random.choice() - легко и непренужденно...
 
-    question_free.innerHTML = questions[Math.floor(Math.random()*questions.length)];
+    question_free.innerHTML = vopros_tree[Math.floor(Math.random()*vopros_tree.length)];
 
-    question_four.innerHTML = questions[Math.floor(Math.random()*questions.length)];
+    question_four.innerHTML = vopros_four[Math.floor(Math.random()*vopros_four.length)];
 
-    question_five.innerHTML = questions[Math.floor(Math.random()*questions.length)];
+    question_five.innerHTML = vopros_five[Math.floor(Math.random()*vopros_five.length)];
 
 
 
 
 }
+
+
+
 
 window.addEventListener('load', function() {
     console.log('page was loaded');
@@ -141,10 +164,11 @@ window.addEventListener('load', function() {
 
 get_result.addEventListener('click', function() {    
 
-
+    
     if (result[question_one.textContent] == input_one.value) {
         count += 1;
         console.log('+1')
+        
 
 
     }
@@ -180,8 +204,17 @@ get_result.addEventListener('click', function() {
 
 
 
+    if (input.value == '') {
+        alert('Вы ответили верно: ' + count + '/5');
 
-    alert(input.value + ', Вы ответили верно: ' + count + '/5');
+
+    }
+
+
+    else {
+        alert(input.value + ', Вы ответили верно: ' + count + '/5');
+
+    }
 
 
 
@@ -191,6 +224,10 @@ get_result.addEventListener('click', function() {
     input_free.value = '';
     input_four.value = '';
     input_five.value = '';
+
+
+
+
 
 
 
